@@ -1,10 +1,10 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login.js'
-import Logout from './components/Logout.js'
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
+import NavBar from './components/NavBar.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   
@@ -14,15 +14,10 @@ class App extends React.Component {
 
   render() {
     return (
-      this.props.currentUser ? <Logout/> : <Login/>
+      <NavBar/>
     );
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return{
-    currentUser
-  }
-}
 
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);
