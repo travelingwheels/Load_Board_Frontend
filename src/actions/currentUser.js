@@ -13,7 +13,6 @@ export const clearCurrentUser = () => {
 
 // asychronous action creators
 export const login = credentials => {
-    console.log("credentials are", credentials)
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
             credentials: "include",
