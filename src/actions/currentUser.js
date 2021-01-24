@@ -1,3 +1,7 @@
+import { resetLoginForm } from './loginForm.js'
+import { setLoads } from './loads.js'
+
+// synchronous
 export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
@@ -11,28 +15,31 @@ export const clearCurrentUser = () => {
     }
 }
 
-// asychronous action creators
-export const login = credentials => {
+// asynchronous action creators
+ export const login = (credentials) => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/login", {
-            credentials: "include",
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(credentials)
-        })
-        .then(res => res.json())
-        .then(user => {
-            if (user.error) {
-                alert(user.error)
-            } else {
-                dispatch(setCurrentUser(user))
-            }
+      return fetch("http://localhost:3001/api/v1/login", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials)
+      })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+            dispatch(resetLoginForm())
+            dispatch(setLoads())
+            // history.push('/')
+          }
         })
         .catch(console.log)
     }
-}
+  }
 
 export const logout = () => {
     return dispatch => {
@@ -54,11 +61,12 @@ export const getCurrentUser = () => {
             },
         })
         .then(res => res.json())
-        .then(user => {
-            if (user.error) {
-                alert(user.error)
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
             } else {
-                dispatch(setCurrentUser(user))
+                dispatch(setCurrentUser(response.data))
+                // dispatch({type: "RESET_LOGIN_FORM"})
             }
         })
         .catch(console.log)
