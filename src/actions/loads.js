@@ -21,7 +21,7 @@ export const getLoads = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setLoads)
+                dispatch(setLoads(response.data))
             }
         })
         .catch(console.log)
