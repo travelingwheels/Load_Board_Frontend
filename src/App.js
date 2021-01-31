@@ -4,8 +4,12 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from './actions/currentUser.js'
 import NavBar from './components/NavBar.js'
+import Logout from './components/Logout.js'
+import Loads from './components/Loads.js'
 import MainContainer from './components/MainContainer.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
 
 class App extends React.Component {
   
@@ -15,10 +19,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <Container className="App">
+        <Logout/>
       <NavBar/>
-      <MainContainer/>
-      </div>
+      <Route exact path='/loads' component={Loads}/>
+      <MainContainer/> 
+      </Container>
     );
   }
 }
