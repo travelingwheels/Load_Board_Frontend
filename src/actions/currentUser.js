@@ -1,5 +1,5 @@
 import { resetLoginForm } from './loginForm.js'
-import { getLoads } from './loads.js'
+import { getLoads, clearLoads } from './loads.js'
 
 // synchronous
 export const setCurrentUser = user => {
@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynchronous action creators
- export const login = (credentials) => {
+ export const login = (credentials, history) => {
     return dispatch => {
       return fetch("http://localhost:3001/api/v1/login", {
         credentials: "include",
@@ -32,18 +32,19 @@ export const clearCurrentUser = () => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
-            dispatch(resetLoginForm())
             dispatch(getLoads())
-            // history.push('/')
+            dispatch(resetLoginForm())
+            history.push('/')
           }
         })
         .catch(console.log)
     }
   }
 
-export const logout = () => {
+export const logout = event => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearLoads())
         return fetch('http://localhost:3001/api/v1/logout', {
             credentials: "include",
             method: "DELETE"
