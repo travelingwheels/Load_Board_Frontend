@@ -1,22 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Login from './Login.js'
+// import Login from './Login.js'
 import Logout from './Logout.js'
 
 
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ currentUser, loggedIn }) => {
 
       return(
          <div className="NavBar">
-            { currentUser ? <strong>Logged In as, {currentUser.attributes.username}</strong> : "" }
-            { currentUser ? <Logout/> : <Login/> }
+           { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.userName}</p><Logout/></> : null}
+           
          </div>
          )
     }
 
     const mapStateToProps = ({ currentUser }) => {
         return {
-            currentUser
+            currentUser,
+            loggedIn: !!currentUser
         }
     }
 
