@@ -2,7 +2,11 @@ import React from 'react'
 
 const LoadCard = ({ load }) => {
     return (
-        <p>{load.attributes.customer_name}</p>
+        <>
+        <h3>{load.attributes.customer_name}</h3>
+        <p>{load.attributes.city}</p>
+        <p>{load.attributes.state}</p>
+        </>
     )
 }
 
