@@ -6,6 +6,12 @@ export const setLoads = loads => {
     }
 }
 
+export const clearLoads = () => {
+    return {
+      type: "CLEAR_LOADS"
+    }
+  }
+
 // asynchronous actions
 export const getLoads = () => {
     return dispatch => {
