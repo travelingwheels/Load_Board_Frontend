@@ -1,5 +1,6 @@
 import { resetLoginForm } from './loginForm.js'
 import { getLoads, clearLoads } from './loads.js'
+import { getDirections } from './directions.js'
 
 // synchronous
 export const setCurrentUser = user => {
@@ -33,6 +34,7 @@ export const clearCurrentUser = () => {
           } else {
             dispatch(setCurrentUser(response.data))
             dispatch(getLoads())
+            dispatch(getDirections())
             dispatch(resetLoginForm())
             history.push('/')
           }
