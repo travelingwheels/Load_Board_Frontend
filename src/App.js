@@ -22,15 +22,16 @@ class App extends React.Component {
   render() {
     const { loggedIn } = this.props
     return (
-      <Container className="App">
-        { loggedIn ? <NavBar {...this.props}/> : <Home/> }
+      <div className="App">
+        { loggedIn ? <Logout/> : null }
         <Switch>
       <Route exact path='/login' component={Login}/>
-      {/* <Route exact path='/home' component={Home}/> */}
+      <Route exact path='/' render={(props)=> loggedIn ? <Loads {...props}/> : <Home {...props}/>}/>
+      <Route exact path='/loads' component={Loads}/>
       </Switch>
-      <MainContainer/> 
-        <Logout/>
-      </Container>
+      <MainContainer/> <Logout/>
+        
+      </div>
     );
   }
 }
