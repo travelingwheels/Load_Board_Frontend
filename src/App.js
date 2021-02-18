@@ -8,6 +8,7 @@ import Logout from './components/Logout.js'
 import Login from './components/Login.js'
 import Loads from './components/Loads.js'
 import  Home from './components/Home.js'
+import  Directions from './components/Directions.js'
 import MainContainer from './components/MainContainer.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
@@ -24,12 +25,13 @@ class App extends React.Component {
     return (
       <div className="App">
         { loggedIn ? <Logout/> : null }
+        <NavBar/>
         <Switch>
       <Route exact path='/login' component={Login}/>
       <Route exact path='/' render={(props)=> loggedIn ? <Loads {...props}/> : <Home {...props}/>}/>
-      <Route exact path='/loads' component={Loads}/>
+      <Route  path='/directions' component={Directions}/>
       </Switch>
-      <MainContainer/> <Logout/>
+      <MainContainer/>
         
       </div>
     );
