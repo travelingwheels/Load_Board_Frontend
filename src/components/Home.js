@@ -3,14 +3,14 @@ import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Home = () => (
-   <Container>
+   <div className = "home">
         <h1>Welcome to the Load Board App</h1>
 
         <span>
         <Link to="/login">Log In</Link>
         </span>
         
-    </Container>
+    </div>
 );
 
 export default Home;
