@@ -1,6 +1,7 @@
 import { resetLoginForm } from './loginForm.js'
 import { getLoads, clearLoads } from './loads.js'
-import { getDirections } from './directions.js'
+import { getDirections, clearDirections } from './directions.js'
+import { getComments, clearComments } from './comments.js'
 
 // synchronous
 export const setCurrentUser = user => {
@@ -35,6 +36,7 @@ export const clearCurrentUser = () => {
             dispatch(setCurrentUser(response.data))
             dispatch(getLoads())
             dispatch(getDirections())
+            dispatch(getComments())
             dispatch(resetLoginForm())
             history.push('/')
           }
@@ -47,6 +49,8 @@ export const logout = event => {
     return dispatch => {
         dispatch(clearCurrentUser())
         dispatch(clearLoads())
+        dispatch(clearDirections())
+        dispatch(clearComments())
         return fetch('http://localhost:3001/api/v1/logout', {
             credentials: "include",
             method: "DELETE"
