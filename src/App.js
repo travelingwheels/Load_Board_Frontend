@@ -9,6 +9,7 @@ import Login from './components/Login.js'
 import Loads from './components/Loads.js'
 import  Home from './components/Home.js'
 import  Directions from './components/Directions.js'
+import  Comments from './components/Comments.js'
 import MainContainer from './components/MainContainer.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
@@ -24,15 +25,14 @@ class App extends React.Component {
     const { loggedIn } = this.props
     return (
       <div className="App">
-        { loggedIn ? <Logout/> : null }
-        <NavBar/>
+        { loggedIn  ?  <NavBar location={this.props.location}/> : <Home/> }
+       
         <Switch>
       <Route exact path='/login' component={Login}/>
-      <Route exact path='/' render={(props)=> loggedIn ? <Loads {...props}/> : <Home {...props}/>}/>
+      <Route exact path='/' render={()=> loggedIn ? <MainContainer/> : null}/>
       <Route  path='/directions' component={Directions}/>
+      <Route  path='/comments' component={Comments}/>
       </Switch>
-      <MainContainer/>
-        
       </div>
     );
   }
@@ -40,7 +40,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    logginIn: !!state.currentUser
+    loggedIn: !!state.currentUser
   })
 }
 
