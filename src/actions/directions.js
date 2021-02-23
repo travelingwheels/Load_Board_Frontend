@@ -6,6 +6,12 @@ export const setDirections = directions => {
     }
 }
 
+export const clearDirections = () => {
+    return {
+      type: "CLEAR_DIRECTIONS"
+    }
+  }
+
 // asynchronous actions
 export const getDirections = () => {
     return dispatch => {
