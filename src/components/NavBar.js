@@ -8,7 +8,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
 
       return(
          <div className="NavBar">
-           { loggedIn ? <><p>Logged in as { currentUser.attributes.username }</p><Logout/></> : null}
+           { loggedIn ? <><p>Logged in as { currentUser.attributes.username }, Truck Number: { currentUser.attributes.truck_number}</p><Logout/></> : null}
            
          </div>
          )
