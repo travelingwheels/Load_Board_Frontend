@@ -21,14 +21,14 @@ export const clearComments = () => {
     }
   }
 
-  export const deleteComment = commentId => {
+  export const deleteCommentSuccess = commentId => {
       return {
           type: "DELETE_COMMENT",
           commentId
       }
   }
 
-  export const updateComment = comment => {
+  export const updateCommentSuccess = comment => {
       return {
           type: "UPDATE_COMMENT",
           comment
@@ -78,6 +78,33 @@ export const createComment = (commentData, history) => {
             } else {
                 dispatch(addComment(resp.data))
                 dispatch(resetCommentForm())
+                history.push(`/comments/${resp.data.id}`)
+            }
+        })
+        .catch(console.log)
+    }
+}
+
+export const updateComment = (commentData, history) => {
+    return dispatch => {
+        const sendCommentData = {
+            content: commentData.content,
+            user_id: commentData.userId
+        }
+        return fetch("http://localhost:3001/api/v1/comments/${commentData.commentId}", {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendCommentData)
+        })
+        .then(response => response.json())
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(updateCommentSuccess(resp.data))
                 history.push(`/comments/${resp.data.id}`)
             }
         })
