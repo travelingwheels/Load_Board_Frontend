@@ -21,6 +21,20 @@ export const clearComments = () => {
     }
   }
 
+  export const deleteComment = commentId => {
+      return {
+          type: "DELETE_COMMENT",
+          commentId
+      }
+  }
+
+  export const updateComment = comment => {
+      return {
+          type: "UPDATE_COMMENT",
+          comment
+      }
+  }
+
 // asynchronous actions
 export const getComments = () => {
     return dispatch => {
