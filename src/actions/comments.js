@@ -111,3 +111,25 @@ export const updateComment = (commentData, history) => {
         .catch(console.log)
     }
 }
+
+export const deleteComment = (commentId, history) => {
+    return dispatch => {
+        return fetch("http://localhost:3001/api/v1/comments/${commentId}", {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(resp => {
+            if (resp.error) {
+                alert(resp.error)
+            } else {
+                dispatch(deleteCommentSuccess(commentId))
+                history.push(`/comments`)
+            }
+        })
+        .catch(console.log)
+    }
+}
