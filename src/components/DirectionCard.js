@@ -5,7 +5,8 @@ const DirectionCard = ({ direction }) => {
     return (
         <>
         <p>{direction.attributes.content}</p>
-        <Link to="/comments">Comments</Link>
+        <Link to="/comments">Comments</Link><br/>
+        <Link to="/comments/new">Add a Comment</Link>
         </>
     )
 }
