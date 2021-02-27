@@ -1,19 +1,19 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-//import users from './reducers/users.js'
 import currentUser from './reducers/currentUser.js'
 import loginForm from './reducers/loginForm.js'
 import loads from './reducers/loads.js'
 import directions from './reducers/directions.js'
 import comments from './reducers/comments.js'
+import commentForm from './reducers/commentForm.js'
 
 const reducer = combineReducers({
-    // users,
     currentUser,
     loginForm,
     loads,
     directions,
-    comments
+    comments,
+    commentForm
   })
   
   const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
