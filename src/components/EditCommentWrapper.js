@@ -24,4 +24,16 @@ class EditCommentWrapper extends React.Component {
           commentId: comment.id
         }, history)
       }
-}
+
+      render() {
+        const { history, deleteComment, comment } = this.props
+        const commentId = comment ? comment.id : null
+        return  <>
+                  <CommentForm editMode handleSubmit={this.handleSubmit} />
+                  <br/>
+                  <button style={{color: "red"}} onClick={()=>deleteComment(commentId, history)}>Delete this Comment</button>
+                </>
+      }
+};
+
+export default connect(null, { updateComment, setFormDataForEdit, resetCommentForm, deleteComment })(EditCommentWrapper);
