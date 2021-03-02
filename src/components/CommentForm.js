@@ -2,7 +2,7 @@ import React from 'react';
 import { updateCommentForm } from '../actions/commentForm'
 import { connect } from 'react-redux'
 
-const CommentForm = ({ formData, updateCommentForm, userId, comment, handleSubmit, editMode }) => {
+const CommentForm = ({ formData, updateCommentForm, userId,  directionId,  handleSubmit,  editMode }) => {
     const { content } = formData
 
     const handleChange = event => {
@@ -13,9 +13,8 @@ const CommentForm = ({ formData, updateCommentForm, userId, comment, handleSubmi
     return (
         <form onSubmit={event => {
             event.preventDefault()
-            handleSubmit(formData)
-        }}>
-
+            handleSubmit(formData, userId, directionId)
+          }}>
             <textarea
                 placeholder="Your Comment"
                 name="content"
@@ -34,7 +33,8 @@ const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
         formData: state.commentForm,
-        userId
+        userId: state.currentUser.id,
+        directionId: state.directions.id
     }
 }
 
