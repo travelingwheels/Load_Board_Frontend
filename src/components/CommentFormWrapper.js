@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 
 const CommentFormWrapper = ({ history, createComment }) => {
 
-  const handleSubmit = (formData, userId) => {
+  const handleSubmit = (formData, userId, directionId) => {
     createComment({
       ...formData,
-      userId
+      userId,
+      directionId
     }, history)
   }
   return  <CommentForm history={history} handleSubmit={handleSubmit} />
