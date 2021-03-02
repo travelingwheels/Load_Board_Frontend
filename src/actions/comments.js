@@ -61,7 +61,8 @@ export const createComment = (commentData, history) => {
     return dispatch => {
         const sendCommentData = {
             content: commentData.content,
-            user_id: commentData.userId
+            user_id: commentData.userId,
+            direction_id: commentData.directionId
         }
         return fetch("http://localhost:3001/api/v1/comments", {
             credentials: "include",
