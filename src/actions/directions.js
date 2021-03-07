@@ -6,11 +6,18 @@ export const setDirections = directions => {
     }
 }
 
+export const setDirection = direction => {
+    return {
+        type: "SET_DIRECTION",
+        direction
+    }
+}
+
 export const clearDirections = () => {
     return {
-      type: "CLEAR_DIRECTIONS"
+        type: "CLEAR_DIRECTIONS"
     }
-  }
+}
 
 // asynchronous actions
 export const getDirections = () => {
@@ -22,14 +29,19 @@ export const getDirections = () => {
                 "Content-type": "application/json"
             },
         })
-        .then(res => res.json())
-        .then(response => {
-            if (response.error) {
-                alert(response.error)
-            } else {
-                dispatch(setDirections(response.data))
-            }
-        })
-        .catch(console.log)
+            .then(res => res.json())
+            .then(response => {
+                if (response.error) {
+                    alert(response.error)
+                } else {
+                    // Remove repeated elements
+                    console.log(response.data)
+                    
+                    const directions = response.data.filter(({ id }, index, arr) => !arr.slice(0, index).find(d => d.id === id));
+                    console.log(directions)
+                    dispatch(setDirections(directions))
+                }
+            })
+            .catch(console.log)
     }
 }
