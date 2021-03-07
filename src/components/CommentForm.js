@@ -33,9 +33,9 @@ const mapStateToProps = state => {
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
         formData: state.commentForm,
-        userId: state.currentUser.id,
-        directionId: state.directions.id
+        userId: state.currentUser?.id,
+        directionId: state.directions.selectedDirection
     }
 }
 
-export default connect(mapStateToProps, { updateCommentForm })(CommentForm)
+export default connect(mapStateToProps, { updateCommentForm })(CommentForm);
