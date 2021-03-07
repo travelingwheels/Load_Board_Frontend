@@ -38,7 +38,7 @@ export const clearComments = () => {
 // asynchronous actions
 export const getComments = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/comments", {
+        return fetch(`http://localhost:3001/api/v1/comments/`, {
             credentials: "include",
             method: "GET",
             headers: {
@@ -77,6 +77,7 @@ export const createComment = (commentData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
+                console.log(resp)
                 dispatch(addComment(resp.data))
                 dispatch(resetCommentForm())
                 history.push(`/comments/${resp.data.id}`)
@@ -92,7 +93,7 @@ export const updateComment = (commentData, history) => {
             content: commentData.content,
             user_id: commentData.userId
         }
-        return fetch("http://localhost:3001/api/v1/comments/${commentData.commentId}", {
+        return fetch(`http://localhost:3001/api/v1/comments/${commentData.commentId}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -115,7 +116,7 @@ export const updateComment = (commentData, history) => {
 
 export const deleteComment = (commentId, history) => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/comments/${commentId}", {
+        return fetch(`http://localhost:3001/api/v1/comments/${commentId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {
@@ -128,6 +129,7 @@ export const deleteComment = (commentId, history) => {
                 alert(resp.error)
             } else {
                 dispatch(deleteCommentSuccess(commentId))
+                dispatch(getComments())
                 history.push(`/comments`)
             }
         })
