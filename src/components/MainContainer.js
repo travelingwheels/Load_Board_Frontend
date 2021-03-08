@@ -10,7 +10,7 @@ const MainContainer = ({  loggedIn }) => {
         <Container className="App">
              { loggedIn ? <>
             <Loads/>
-            <Link to="/directions" className="link">Directions</Link>
+            
             </> : null}
         </Container>
     )
