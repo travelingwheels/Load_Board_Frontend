@@ -5,7 +5,7 @@ export default (state = [], action) => {
         case "SET_COMMENTS":
             return action.comments
         case "ADD_COMMENT":
-            return state.concat(action.comments)
+            return state.concat(action.comment)
          case "UPDATE_COMMENT":
             return state.map(comment => comment.id === action.comment.id ? action.comment : comment)
         case "DELETE_ COMMENT":
