@@ -1,9 +1,35 @@
-// const initialState = []
+const initialState = {
+    directions: [],
+    selectedDirection: null
+}
 
-export default (state = [], action) => {
+/*[{
+    id: 1,
+    text: '...'
+}]
+
+{
+    selectedDirection: 1,
+    directions: [{
+        id: 1,
+        text: '...'
+    }]
+}*/
+
+export default (state = initialState, action) => {
     switch (action.type) {
         case "SET_DIRECTIONS":
-            return action.directions
+            return {
+                ...state,
+                directions: action.directions
+            }
+        case "SET_DIRECTION":
+            return {
+                ...state,
+               selectedDirection: action.direction
+            }
+        case "CLEAR_DIRECTIONS":
+            return initialState
         default:
             return state
     }
