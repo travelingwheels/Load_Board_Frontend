@@ -18,6 +18,7 @@ export const updateCommentForm = (name, value) => {
     const commentFormData = {
       content: comment.attributes.content
     }
+    console.log('commentFormData',  JSON.stringify(commentFormData));
     return {
       type: "SET_FORM_DATA_FOR_EDIT",
       commentFormData

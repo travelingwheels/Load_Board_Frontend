@@ -80,7 +80,7 @@ export const createComment = (commentData, history) => {
                 console.log(resp)
                 dispatch(addComment(resp.data))
                 dispatch(resetCommentForm())
-                history.push(`/comments/${resp.data.id}`)
+                history.push(`/comments`)
             }
         })
         .catch(console.log)
@@ -107,7 +107,7 @@ export const updateComment = (commentData, history) => {
                 alert(resp.error)
             } else {
                 dispatch(updateCommentSuccess(resp.data))
-                history.push(`/comments/${resp.data.id}`)
+                history.push(`/comments`)
             }
         })
         .catch(console.log)

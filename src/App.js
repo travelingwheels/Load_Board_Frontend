@@ -36,6 +36,7 @@ class App extends React.Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/' render={() => loggedIn ? <MainContainer /> : null} />
           <Route exact path='/directions/:id' component={Directions} />
+          <Route exact path='/directions' component={Directions} />
           <Route exact path='/comments' component={Comments} />
           <Route exact path='/comments/new' component={CommentFormWrapper} />
           <Route exact path='/comments/:id' render={props => {

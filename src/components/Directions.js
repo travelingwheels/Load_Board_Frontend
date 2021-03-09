@@ -3,14 +3,27 @@ import DirectionCard from './DirectionCard.js'
 import { connect } from 'react-redux'
 
 const Directions = (props) => {
-    console.log(props)
+    console.log(props);
+    let directionId =  props.match.params.id;
+    console.log(' directionId: ', directionId);
     const { directions } = props.directions;
-    const userDirections = directions.filter(({ id } ) => props.match.params.id == id)
-    const directionCards = userDirections.length > 0
-        ? userDirections.map(d => <DirectionCard direction={d} key={d.id}/>)
-        : null
+    let directionCard = null;
+    if (directionId) {
+        const selectedDirection = directions.find(({ id } ) => directionId == id)
+        directionCard = selectedDirection &&  <DirectionCard direction={selectedDirection} key={selectedDirection.id} />
+    }
+    else {
+        directionCard = directions.map((direction) => {
+            return (
+                <DirectionCard direction={direction} key={direction.id}/>
+            )
+        }) 
+    }
+
+    console.log('directionCard', directionCard);
+
     return (
-        directionCards
+        directionCard ?  directionCard : null
     )
 }
 

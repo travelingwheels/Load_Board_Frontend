@@ -20,7 +20,6 @@ class EditCommentWrapper extends React.Component {
     handleSubmit = (formData, userId, directionId) => {
         const { updateComment, comment, comment: { commentId }, history } = this.props;
 
-
         updateComment({
             ...formData,
             userId,

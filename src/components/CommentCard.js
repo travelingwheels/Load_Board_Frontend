@@ -6,7 +6,7 @@ const CommentCard = ({ comment }) => {
     return (
         <Card style={{ background: '#33ff9f'}}>
         <p>{comment.attributes.content}</p>
-        <Link to={`/comments/${comment.id}/edit`}>Edit</Link>
+        <Link to={`/comments/${comment.id}/edit`}>Edit</Link> 
         </Card>
     )
 }
