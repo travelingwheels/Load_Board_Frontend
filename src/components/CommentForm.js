@@ -7,7 +7,7 @@ const CommentForm = ({ formData, updateCommentForm, userId,  directionId,  handl
 
     const handleChange = event => {
         const { name, value } = event.target
-        console.log('updating comment....');
+        //console.log('updating comment....');
         updateCommentForm( name, value)
     }
 

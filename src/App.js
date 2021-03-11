@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render() {
     const { loggedIn, comments } = this.props
-    console.log({ comments })
+
     return (
       <div className="App">
         <header>

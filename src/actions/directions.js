@@ -35,10 +35,7 @@ export const getDirections = () => {
                     alert(response.error)
                 } else {
                     // Remove repeated elements
-                    console.log(response.data)
-                    
                     const directions = response.data.filter(({ id }, index, arr) => !arr.slice(0, index).find(d => d.id === id));
-                    console.log(directions)
                     dispatch(setDirections(directions))
                 }
             })

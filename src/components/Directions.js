@@ -3,9 +3,8 @@ import DirectionCard from './DirectionCard.js'
 import { connect } from 'react-redux'
 
 const Directions = (props) => {
-    console.log(props);
     let directionId =  props.match.params.id;
-    console.log(' directionId: ', directionId);
+    //console.log(' directionId: ', directionId);
     const { directions } = props.directions;
     let directionCard = null;
     if (directionId) {
@@ -20,7 +19,7 @@ const Directions = (props) => {
         }) 
     }
 
-    console.log('directionCard', directionCard);
+    //console.log('directionCard', directionCard);
 
     return (
         directionCard ?  directionCard : null

@@ -7,10 +7,8 @@ import { connect } from 'react-redux'
 const CommentFormWrapper = ({ history, createComment, directions, directionId }) => {
   //getDirections();
 
-  console.log({ directions })
-
   const handleSubmit = (formData, userId, directionId) => {
-    console.log({ directionId })
+    //console.log({ directionId })
     createComment({
       ...formData,
       userId,

@@ -77,7 +77,7 @@ export const createComment = (commentData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-                console.log(resp)
+                //console.log(resp)
                 dispatch(addComment(resp.data))
                 dispatch(resetCommentForm())
                 history.push(`/comments`)

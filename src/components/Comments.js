@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const Comments = ({ comments, direction }) => {
     const visibleComments = comments.filter(comment => comment.relationships.direction.data.id == direction);
-    console.log({direction})
+    //console.log({direction})
     const commentCards = visibleComments.length > 0
         ? visibleComments.map(c => <CommentCard comment={c} key={c.id}/>)
         : null
