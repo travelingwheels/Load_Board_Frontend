@@ -1,6 +1,51 @@
-# Getting Started with Create React App
+# Load Board 
+
+Welcome to the Load Board Scheduling App. This is my final project for Flatiron Bootcamp. This application allows a user to login and see assigned loads for the week as well as get directions for each load, also review and leave comments (or "notes") for the directions. This repository contains the React/Redux frontend of the project.
+
+# Backend
+
+The backend for this project can be found here: https://github.com/travelingwheels/Load_Board_Backend
+
+
+# Installing and Starting the Load Board
+
+Follow these steps to start up the Load Board app:
+
+1.  Fork and clone this repository onto your own computer and run cd Load_Board_Frontend.
+2.  Navigate to the backend, fork and clone that repository,run cd Load_Board_Backend. Then start the Rails server using the rails s command.
+3.  From theLoad_board_Frontend directory, run npm install and npm start.
+
+You're all set!
+
+# Usage
+
+Load Board is a single-page application that displays a users schedule. It also shows directions for a specific load as well as comments made by the user for the directions. The user can create, edit or delete their comments. 
+
+# Contributing
+
+Please feel free to raise a new Issue on my repository if you have any problems with my app (installation, usage, bugs, etc), or if you have suggestions for a new feature. Pull requests are also welcome.
+
+Contributors are expected to follow the project's code of conduct. This can be viewed in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
+
+# LICENSE
+
+License under [MIT License](LICENSE)
+
+# Developer Notes
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+These packages were also utilized in this app:
+
+* [Redux](https://redux.js.org)
+
+* [React Router](https://reactrouter.com/wec/guides/quick-start)
+
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+
+* [React Redux](https://react-redux.js.org)
+
+* [React Bootstrap](https://react-bootstrap.github.io)
 
 ## Available Scripts
 
