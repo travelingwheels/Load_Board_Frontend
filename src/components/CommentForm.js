@@ -16,7 +16,7 @@ const CommentForm = ({ formData, updateCommentForm, userId,  directionId,  handl
             event.preventDefault()
             handleSubmit(formData, userId, directionId)
           }}>
-            <textarea
+            <textarea className="textarea"
                 placeholder="Your Comment"
                 name="content"
                 onChange={handleChange}

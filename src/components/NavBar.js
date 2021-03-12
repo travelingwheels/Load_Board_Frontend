@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import Login from './Login.js'
 import Logout from './Logout.js'
 import { Link } from 'react-router-dom'
 
@@ -11,8 +10,7 @@ const NavBar = ({ currentUser, loggedIn }) => {
          <div className="NavBar">
               <Link to={`/`}>Home</Link>
               <Link to={`/directions`}>Directions</Link>
-           { loggedIn ? <><p>Logged in as { currentUser.attributes.username }, Truck Number: { currentUser.attributes.truck_number}</p><Logout/></> : null}
-           
+              { loggedIn ? <><strong>Logged in as { currentUser.attributes.username }, Truck Number: { currentUser.attributes.truck_number}</strong><Logout/></> : null}
          </div>
          )
     }

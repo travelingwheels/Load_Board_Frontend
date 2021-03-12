@@ -7,7 +7,7 @@ const Home = () => (
         <h1>Welcome to the Load Board App</h1>
 
         <span>
-        <Link to="/login">Log In</Link>
+            To see your schedule, please  <Link to="/login" className="Login">Log In</Link>
         </span>
         
     </div>

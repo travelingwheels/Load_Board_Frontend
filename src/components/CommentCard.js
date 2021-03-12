@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap'
 
 const CommentCard = ({ comment }) => {
     return (
-        <Card style={{ background: '#33ff9f'}}>
+        <Card className="card"style={{ background: '#33ff9f'}}>
         <p>{comment.attributes.content}</p>
         <Link to={`/comments/${comment.id}/edit`}>Edit</Link> 
         </Card>

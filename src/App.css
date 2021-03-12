@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 25px 10px 15px 20px;
 }
 
 .App-logo {
@@ -15,6 +16,15 @@
 
 .link {
   color: black;
+}
+
+.Login {
+  color: darkblue;
+}
+
+.textarea {
+  width: 890px;
+  height: 100px;
 }
 
 .App-header {
@@ -44,7 +54,20 @@
 .NavBar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: 50px;
   margin-right: 50px;
+  background: white;
+}
+
+.card {
+  padding: 25px 10px 15px 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border: 28px solid #17a2b8;
+}
+
+.MainContainer{
+  padding: 25px 10px 15px 20px;
+ 
 }

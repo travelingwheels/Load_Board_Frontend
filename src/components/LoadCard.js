@@ -8,7 +8,7 @@ const LoadCard = ({ load }) => {
         <h3>{load.attributes.customer_name}</h3>
         <p>{load.attributes.city}</p>
         <p>{load.attributes.state}</p>
-        <Link to={`/directions/${load.id}`} className="link">Directions</Link>
+        Click below for <Link to={`/directions/${load.id}`} className="link">Directions</Link>
         </Card>
     )
 }
