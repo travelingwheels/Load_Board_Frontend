@@ -58,7 +58,9 @@ export const getComments = () => {
 }
 
 export const createComment = (commentData, history) => {
+    console.log('b')
     return dispatch => {
+        console.log('c')
         const sendCommentData = {
             content: commentData.content,
             user_id: commentData.userId,
@@ -78,13 +80,16 @@ export const createComment = (commentData, history) => {
                 alert(resp.error)
             } else {
                 //console.log(resp)
+                console.log('d')
                 dispatch(addComment(resp.data))
                 dispatch(resetCommentForm())
                 history.push(`/comments`)
             }
         })
         .catch(console.log)
+        console.log('e')
     }
+    console.log('f')
 }
 
 export const updateComment = (commentData, history) => {

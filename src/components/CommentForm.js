@@ -2,7 +2,7 @@ import React from 'react';
 import { updateCommentForm } from '../actions/commentForm'
 import { connect } from 'react-redux'
 
-const CommentForm = ({ formData, updateCommentForm, userId,  directionId,  handleSubmit,  editMode }) => {
+const CommentForm = ({ formData, userId,  directionId,  updateCommentForm, handleSubmit,  editMode }) => {
     const { content } = formData
 
     const handleChange = event => {

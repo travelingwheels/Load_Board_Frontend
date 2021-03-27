@@ -9,11 +9,13 @@ const CommentFormWrapper = ({ history, createComment, directions, directionId })
 
   const handleSubmit = (formData, userId, directionId) => {
     //console.log({ directionId })
+    console.log('a')
     createComment({
       ...formData,
       userId,
       directionId
     }, history)
+    console.log('g')
   }
 
   return <CommentForm history={history} handleSubmit={handleSubmit} />
